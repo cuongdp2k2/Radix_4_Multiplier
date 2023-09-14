@@ -1,0 +1,66 @@
+[*]
+[*] GTKWave Analyzer v3.4.0 (w)1999-2022 BSI
+[*] Thu Sep 14 03:15:19 2023
+[*]
+[dumpfile] "/home/FPGA/Part_1/Ex1/wave.fst"
+[dumpfile_mtime] "Thu Sep 14 02:46:34 2023"
+[dumpfile_size] 17239
+[savefile] "/home/FPGA/Part_1/Ex1/wave.gtkw"
+[timestart] 0
+[size] 1016 639
+[pos] 0 -101
+*-3.900000 40 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] TOP.top.
+[treeopen] TOP.top.dut.
+[treeopen] TOP.top.dut.operand1.
+[treeopen] TOP.top.dut.operand2.
+[sst_width] 40
+[signals_width] 241
+[sst_expanded] 0
+[sst_vpaned_height] 172
+@28
+TOP.top.clk_i
+@22
+TOP.data1_i[7:0]
+TOP.data2_i[7:0]
+@29
+TOP.result_o[15:0]
+@28
+TOP.top.dut.MR_i[7:0]
+@22
+TOP.top.dut.MD_i[7:0]
+TOP.top.dut.Stg0_MD[7:0]
+TOP.top.dut.Stg1_MD[7:0]
+TOP.top.dut.Stg2_MD[7:0]
+@28
+TOP.top.dut.Stg0_MR_3_to_1[2:0]
+TOP.top.dut.Stg0_MR_5_to_3[2:0]
+TOP.top.dut.Stg1_MR_5_to_3[2:0]
+TOP.top.dut.Stg0_MR_7_to_5[2:0]
+TOP.top.dut.Stg1_MR_7_to_5[2:0]
+TOP.top.dut.Stg2_MR_7_to_5[2:0]
+@22
+TOP.top.dut.Stg0_Muti[9:0]
+TOP.top.dut.Stg1_Muti[9:0]
+TOP.top.dut.Stg2_Muti[9:0]
+@c00028
+TOP.top.dut.Stg1_P1P0[1:0]
+@28
+(0)TOP.top.dut.Stg1_P1P0[1:0]
+(1)TOP.top.dut.Stg1_P1P0[1:0]
+@1401200
+-group_end
+@28
+TOP.top.dut.Stg2_P1P0[1:0]
+TOP.top.dut.Stg2_P3P2[1:0]
+TOP.top.dut.clk_i
+TOP.top.dut.result[0][9:0]
+TOP.top.dut.multi_result[1][7:0]
+TOP.top.dut.result[1][9:0]
+TOP.top.dut.multi_result[2][7:0]
+TOP.top.dut.result[2][9:0]
+TOP.top.dut.multi_result[3][7:0]
+TOP.top.dut.result[3][9:0]
+TOP.top.dut.result_o[15:0]
+[pattern_trace] 1
+[pattern_trace] 0

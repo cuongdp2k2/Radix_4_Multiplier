@@ -1,0 +1,5 @@
+./src/mul_comp.sv
+./src/adder.sv
+./src/operand.sv
+./src/ex1.sv
+

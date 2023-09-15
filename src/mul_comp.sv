@@ -18,10 +18,10 @@ module mul_comp
     //input logic         clk_i   ,
 
     // output
-    output logic [9:0] result_o
+    output logic [8:0] result_o
 ) ;
-    logic [9:0] data_temp ;
-    assign data_temp = {data_i[7],data_i[7],data_i} ;
+    logic [8:0] data_temp ;
+    assign data_temp = {data_i[7],data_i} ;
 
 
     always_comb begin
@@ -39,10 +39,10 @@ module mul_comp
 
             // Result = -Data 
             Mx_minus1_1,
-            Mx_minus1_2 : result_o = -1 * data_temp ;
+            Mx_minus1_2 : result_o = ~data_temp + 1 ;
 
             // Result = -2 x Data
-            Mx_minus2   : result_o = -2 * data_temp ;
+            Mx_minus2   : result_o = ~(2 * data_temp) + 1 ;
 
             default     : result_o <= 0 ;
         endcase

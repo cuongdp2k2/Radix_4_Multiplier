@@ -7,7 +7,7 @@ module top (
     // output
     output logic [15:0] result_o 
 );
-    ex1 dut(
+    model_3 dut(
         // input
         .MD_i(data1_i)       ,
         .MR_i(data2_i)       ,
@@ -16,5 +16,5 @@ module top (
         // output
         .result_o(result_o)  
     );
-  
+
 endmodule : top 

@@ -7,16 +7,16 @@ module model_2(
         output logic [15:0] result_o
 );
     logic [16:0] shif_MR [6:1] ;
-    logic [8:0 ]  mc[6:0]   ;
-    logic [16:0] result [6:1] ;
-    logic [7:0] MD_wire [6:1] ;
+    logic [8:0 ]  mc     [6:0] ;
+    logic [16:0] result  [6:1] ;
+    logic [7:0] MD_wire  [6:1] ;
     logic [16:0] MR_gen_wire [6:1] ;
 
     reg [16:0] MR_gen [5:0]   ;
     reg [7:0] __MD [5:0] ;
     
 
-    // stage 0
+// stage 0
 
     always @(posedge clk_i) begin
         __MD[0] <= MD_i ;
@@ -49,7 +49,7 @@ module model_2(
         
     end
 
-    // stage 2
+// stage 2
     assign MR_gen_wire[2] = MR_gen[1] ;
     assign shif_MR[2] = MR_gen_wire[2] >> 1 ;
     assign MD_wire[2] = __MD[1] ;
@@ -59,7 +59,7 @@ module model_2(
         MR_gen[2] <= shif_MR[2] ;
     end
 
-    // stage 3
+// stage 3
     assign MR_gen_wire[3] = MR_gen[2] ;
     assign shif_MR[3] = MR_gen_wire[3] >> 1 ;
     assign MD_wire[3] = __MD[2] ;
@@ -84,7 +84,7 @@ module model_2(
         MR_gen[3] <= result[3] ;
     end
 
-    // stage 4
+// stage 4
     assign MR_gen_wire[4] = MR_gen[3] ;
     assign shif_MR[4] = MR_gen_wire[4] >> 2 ;
     assign MD_wire[4] = __MD[3] ;
@@ -109,7 +109,7 @@ module model_2(
         MR_gen[4] <= result[4] ;
     end
 
-    // stage 5
+// stage 5
     assign MR_gen_wire[5] = MR_gen[4] ;
     assign shif_MR[5] = MR_gen_wire[5] >> 1 ;
     assign MD_wire[5] = __MD[4] ;
@@ -119,7 +119,7 @@ module model_2(
         MR_gen[5] <= shif_MR[5] ;
     end
 
-    // stage 6
+// stage 6
     assign MR_gen_wire[6] = MR_gen[5] ;
     assign shif_MR[6] = MR_gen_wire[6] >> 1 ;
     assign MD_wire[6] = __MD[5] ;

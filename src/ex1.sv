@@ -7,9 +7,9 @@ module ex1 (
     // output
     output logic [15:0] result_o 
 );
-    logic [9:0] result          [3:0] ;
+    logic [8:0] result          [3:0] ;
     logic [7:0] __MD            [3:1] ;
-    logic [7:0] multi_result    [3:1] ;
+    logic [6:0] multi_result    [3:1] ;
     
     logic [2:0] __R3R2R1              ;
     logic [2:0] __R5R4R3        [2:1] ;
@@ -25,7 +25,7 @@ module ex1 (
     reg [2:0] Stg0_MR_5_to_3 ;
     reg [2:0] Stg0_MR_3_to_1 ;
     reg [7:0] Stg0_MD        ;
-    reg [9:0] Stg0_Muti      ;
+    reg [8:0] Stg0_Muti      ;
     //reg [1:0] Stg0_P1P0      ;
 
     operand operand1 (
@@ -51,21 +51,21 @@ module ex1 (
     reg [2:0] Stg1_MR_7_to_5 ;
     reg [2:0] Stg1_MR_5_to_3 ;
     reg [7:0] Stg1_MD        ;
-    reg [9:0] Stg1_Muti      ;
+    reg [8:0] Stg1_Muti      ;
     reg [1:0] Stg1_P1P0      ;
 
     assign __R3R2R1          = Stg0_MR_3_to_1 ;
     assign __MD[1]           = Stg0_MD        ;
-    assign multi_result[1]   = Stg0_Muti[9:2] ;
+    assign multi_result[1]   = Stg0_Muti[8:2] ;
     assign __P1P0[1]         = Stg0_Muti[1:0] ;
     assign __R7R6R5[1]       = Stg0_MR_7_to_5 ;
     assign __R5R4R3[1]       = Stg0_MR_5_to_3 ;
 
     operand operand2 (
         // input
-        .data1_i (__MD[1])               ,
-        .data2_i (multi_result[1])       ,
-        .multi_i(__R3R2R1)               ,
+        .data1_i (__MD[1])                                    ,
+        .data2_i ({multi_result[1][6],multi_result[1]})       ,
+        .multi_i(__R3R2R1)                                    ,
 
         // output
         .result_o(result[1])  
@@ -82,22 +82,22 @@ module ex1 (
     // Pipeline stage 2
     reg [2:0] Stg2_MR_7_to_5 ;
     reg [7:0] Stg2_MD        ;
-    reg [9:0] Stg2_Muti      ;
+    reg [8:0] Stg2_Muti      ;
     reg [1:0] Stg2_P1P0      ;
     reg [1:0] Stg2_P3P2      ;
 
     assign __R7R6R5[2]     = Stg1_MR_7_to_5 ;
     assign __MD[2]         = Stg1_MD        ;
-    assign multi_result[2] = Stg1_Muti[9:2] ;
+    assign multi_result[2] = Stg1_Muti[8:2] ;
     assign __R5R4R3[2]     = Stg1_MR_5_to_3 ;
     assign __P1P0[2]       = Stg1_P1P0      ; 
     assign __P3P2[2]       = Stg1_Muti[1:0] ;
 
     operand operand3 (
         // input
-        .data1_i(__MD[2])          ,
-        .data2_i(multi_result[2])  ,
-        .multi_i(__R5R4R3[2])          ,
+        .data1_i(__MD[2])                               ,
+        .data2_i({multi_result[2][6],multi_result[2]})  ,
+        .multi_i(__R5R4R3[2])                           ,
 
         // output
         .result_o(result[2])  
@@ -115,13 +115,13 @@ module ex1 (
 
     assign __R7R6R5[3]       = Stg2_MR_7_to_5 ;
     assign __MD[3]           = Stg2_MD        ;
-    assign multi_result[3]   = Stg2_Muti[9:2] ;
+    assign multi_result[3]   = Stg2_Muti[8:2] ;
     assign __P5P4            = Stg2_Muti[1:0] ;
 
     operand operand4(
         // input
         .data1_i(__MD[3])          ,
-        .data2_i(multi_result[3])  ,
+        .data2_i({multi_result[3][6],multi_result[3]})  ,
         .multi_i(__R7R6R5[3])  ,
 
         // output
@@ -131,6 +131,7 @@ module ex1 (
     assign result_o[1:0]   = Stg2_P1P0        ;
     assign result_o[3:2]   = Stg2_P3P2        ;
     assign result_o[5:4]   = __P5P4           ;
-    assign result_o[15:6]  = result[3]        ;
+    assign result_o[14:6]  = result[3]        ;
+    assign result_o[15]    = result[3][8]     ;
 
 endmodule : ex1 

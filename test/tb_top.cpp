@@ -77,6 +77,7 @@ int main(int argc, char **argv, char **env) {
 
   // Check procedure
   while (sim_unit < MAX_SIM){
+    //testbench(Vtop *dut,vluint64_t sim_unit) ;
     dut_clock(dut, vtrace);
     set_random(dut, sim_unit);
     dut->eval();

@@ -67,6 +67,7 @@ module model_3(
         .result_o(result[2]) // 9 bit
     );
 
+    //assign mc[2] = {3'b0,{2{result[2][8]}},result[2],2'b00} ;
     assign mc[2] = {{5{result[2][8]}},result[2],2'b00} ;
 
     adder #(.N(16)) add2 (
@@ -102,6 +103,7 @@ module model_3(
         .result_o(result[3]) // 9 bit
     );
 
+    //assign mc[3] = {1'b0,{2{result[3][8]}},result[3],4'b00} ;
     assign mc[3] = {{3{result[3][8]}},result[3],4'b00} ;
 
     adder #(.N(16)) add3 (
@@ -137,6 +139,7 @@ module model_3(
         .result_o(result[4]) // 9 bit
     );
 
+    //assign mc[4] = {1'b0,result[4],6'b000000} ;
     assign mc[4] = {{1{result[4][8]}},result[4],6'b000000} ;
 
     adder #(.N(16)) add4 (
